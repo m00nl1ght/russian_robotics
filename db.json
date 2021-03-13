@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Иван",
+      "surname": "Иванов",
+      "patronymic": "Иванович",
+      "dateOfBirth": "2019-09-29",
+      "placeOfBirth": "г. Иванов",
+      "email": "ivanov@mail.com",
+      "tel": 89881234567,
+      "createdAt": "2019-09-29T00:00:00.000Z",
+      "updatedAt": "2021-02-26T09:25:45.688Z"
+    },
+    {
+      "id": 2,
+      "name": "Петр",
+      "surname": "Петров",
+      "patronymic": "Петрович",
+      "dateOfBirth": "2010-09-29",
+      "placeOfBirth": "г. Петровск",
+      "email": "petrov@mail.com",
+      "tel": 89881111111,
+      "createdAt": "2019-09-29T00:00:00.000Z",
+      "updatedAt": "2021-02-26T09:25:45.688Z"
+    },
+    {
+      "id": 3,
+      "name": "Сидор",
+      "surname": "Сидоров",
+      "patronymic": "Сидорович",
+      "dateOfBirth": "2009-01-01",
+      "placeOfBirth": "г. Сидровск",
+      "email": "sidorov@mail.com",
+      "tel": 89889999999,
+      "createdAt": "2019-09-29T00:00:00.000Z",
+      "updatedAt": "2021-02-26T09:25:45.688Z"
+    }
+  ]
+}
