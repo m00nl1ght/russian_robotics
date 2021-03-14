@@ -15,8 +15,7 @@ export default {
 
     methods: {
         onEdit() {
-            console.log(this.id)
-            // this.$router.push('/user/' + this.id)
+            this.$router.push('/user/' + this.id)
         }
     }
 }

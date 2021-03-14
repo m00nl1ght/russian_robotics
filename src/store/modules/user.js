@@ -89,7 +89,68 @@ const actions = {
                 })
             })
         })
-    }
+    },
+
+    deleteUser(context, id) {
+        return new Promise((resolve, reject) => {
+            HTTP.delete('/users/' + id)
+            .then((res) => {
+                if(res.status == 200) {
+                    context.dispatch('getUsers')
+                    resolve({
+                        status: true,
+                        message: "Пользователь удален"
+                    })
+                } else {
+                    resolve({
+                        status: false,
+                        message: "Что-то пошдо не так, попробуйте еще"
+                    })
+                }
+            })
+            .catch(err => {
+                console.log(err)
+                reject({
+                    status: false,
+                    message: err
+                })
+            })
+        })
+    },
+
+    setStartValue(context, id) {
+        let item = context.state.users.find(item => item.id == id)
+
+        context.commit('setStartValue', item)
+    },
+
+    editUser(context, id) {
+        return new Promise((resolve, reject) => {
+            let currentDate = new Date()
+
+            HTTP.patch('/users/' + id, {
+                ...context.state.editForm,
+                "updatedAt": currentDate.toISOString()
+            })
+            .then((res) => {
+                if(res.status == 200) {
+                    context.dispatch('getUsers')
+                    context.commit('clearFormValue')
+                    resolve(({
+                        status: true,
+                        message: "Пользователь изменен"
+                      }))
+                }
+            })
+            .catch(err => {
+                console.log(err)
+                reject({
+                  status: false,
+                  message: err
+                })
+            })
+        })
+    },
 }
 
 // mutations
@@ -125,7 +186,11 @@ const mutations = {
             email: "",
             tel: ""
         }
-    }
+    },
+
+    setStartValue(context, credentials) {
+        context.editForm = credentials
+    },
 }
 
 export default {

@@ -30,16 +30,25 @@ export default {
                 trapFocus: true,
                 events: {
                     'onDelete': () => {
-                        this.onDelete(id)
+                        this.$store.dispatch('user/deleteUser', id)
+                        .then(res => {
+                            if(res.status) {
+                                this.$buefy.toast.open({
+                                    message: res.message,
+                                    duration: 3000,
+                                    type: 'is-success'
+                                })
+                            } else {
+                                this.$buefy.toast.open({
+                                    message: res.message,
+                                    duration: 5000,
+                                    type: 'is-danger'
+                                })
+                            }
+                        })
                     }
                 }
             })
-      
-            // this.$store.dispatch('users/onDelete', id)
-        },
-
-        onDelete(id) {
-            console.log(id)
         }
     }
 }
