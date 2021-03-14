@@ -25,9 +25,10 @@
         </b-field>
 
         <b-field label="Дата рождения">
-            <b-input 
+            <b-input
                 :value="this.$store.state.user.editForm.dateOfBirth"
-                @input="onChange($event, 'dateOfBirth')"  
+                @input="onChange($event, 'dateOfBirth')"
+                type="date"
                 required
             ></b-input>
         </b-field>
@@ -43,7 +44,8 @@
         <b-field label="Электронная почта">
             <b-input 
                 :value="this.$store.state.user.editForm.email"
-                @input="onChange($event, 'email')"  
+                @input="onChange($event, 'email')"
+                type="email" 
                 required
             ></b-input>
         </b-field>
@@ -51,7 +53,8 @@
         <b-field label="Телефон">
             <b-input 
                 :value="this.$store.state.user.editForm.tel"
-                @input="onChange($event, 'tel')"  
+                @input="onChange($event, 'tel')"
+                type="number"
                 required
             ></b-input>
         </b-field>

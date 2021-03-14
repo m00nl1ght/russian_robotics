@@ -21,10 +21,20 @@ export default {
 
     methods: {
         onSubmit() {
-            this.$store.dispatch('posts/addPost')
+            this.$store.dispatch('user/addUser')
             .then(res => {
-                if(res == 'success') {
-                    this.$router.go(-1)
+                if(res.status) {
+                    this.$buefy.toast.open({
+                        message: res.message,
+                        duration: 3000,
+                        type: 'is-success'
+                    })
+                } else {
+                    this.$buefy.toast.open({
+                        message: res.message,
+                        duration: 5000,
+                        type: 'is-danger'
+                    })
                 }
             })
         },

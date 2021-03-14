@@ -1,6 +1,9 @@
 <template>
     <div class="container py-2">
         <div class="user-add">
+            <Sort 
+              class="mr-5"/>
+
             <router-link 
                 :to="{name: 'user-add'}"
                 class="button is-info"
@@ -13,12 +16,13 @@
 </template>
 
 <script>
+import Sort from "@/components/forms/Sort"
 import UsersTable from "@/components/UsersTable"
 import Paginate from "@/components/Paginate"
 
 export default {
     name: 'Users',
-    components: { UsersTable, Paginate },
+    components: { Sort, UsersTable, Paginate },
 
     data() {
       return {
@@ -33,6 +37,7 @@ export default {
 
     display: flex;
     justify-content: flex-end;
+    align-items: center;
   }
 
 </style>>
